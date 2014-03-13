@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Goomy Clicker</title>
+
+<link rel="stylesheet" href="goomyclicker.css" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="sprintf.min.js"></script>
+
+<script type="text/javascript" src="about.js"></script>
+
+<script type="text/javascript" src="items.js"></script>
+<script type="text/javascript" src="recalc.js"></script>
+<script type="text/javascript" src="goomyclicker.js"></script>
+<script type="text/javascript" src="saveload.js"></script>
+
+<script type="text/javascript" src="scale.js"></script>
+
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-45012430-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+</script>
+</head>
+
+
+<body onload="init_game()">
+
+<div id="container">
+
+	<img id="background" src="images/goomy_bg.jpg" />
+
+<div id="gamebox">
+
+	<table style="width: 100%;">
+
+		<tr>
+			<td id="leftbar_c">
+				<div id="leftbar">
+
+					<p>
+						<button id="save_button">Save</button>
+						<button id="export_button">Export Save</button>
+						<button id="import_button">Import Save</button>
+
+						<div id="save_dialog">
+							Game saved.
+						</div>
+						<div id="export_dialog">
+							<span class="small">Export this save file:</span>
+							<textarea id="export_string" style="resize: none;"></textarea>
+							<button id="close_export">Done</button>
+						</div>
+						<div id="import_dialog">
+							<span class="small">Import this save file:</span>
+							<textarea id="import_string" style="resize: none;"></textarea>
+							<button id="import_savefile">Import</button>
+						</div>
+					</p>
+
+					<p>
+						<button id="info_button" onclick="show_info()">Show info</button>
+						<button id="info_button" onclick="query_reset()">Reset</button>
+					</p>
+
+				</div>
+				<div id="upgrade_bar">
+				</div>
+			</td>
+
+			<td id="centre_c" rowspan="2">
+				<div id="centre" style="text-align: center; position: relative;">
+					
+					<div id="goomies">
+						<p><span id="goomycount">0 Goomies</span><br />
+						<span id="gps">0 Goomies per second</span></p>
+					</div>
+					<div id="goomy_container" style="margin: auto;">
+						<img id="great_goomy" style="margin: auto; height: 400px;" src="images/great_goomy.png" />
+					</div>
+					<div id="stats">
+						<span class="dialog_header">STATS</span>
+						<div>Level <span id="level">1</span> <progress id="expbar" max="100" value="0"></progress></div>
+						<p>If your swath of Goomies were laid out end to end, they would stretch <span id="length_comparison" class="indicator"></span>.</p>
+					</div>
+
+					<!-- begin panels -->
+					
+					<div id="info" class="panel">
+						<span class="dialog_header">INFORMATION</span>
+						<p>Number of Goomies: <span id="info_goomycount" class="indicator"></span></p>
+
+						<p>Total space your Goomies fill: <b><span id="total_volume"></span></b><br />
+						Your swath of Goomies could occupy <span id="volume_comparison" class="indicator"></span>.</p>
+
+						<p>Total mass of your Goomies: <b><span id="total_weight"></span></b><br />
+						Your swath of Goomies weighs as much as <span id="weight_comparison" class="indicator"></span>.</p>
+
+
+						<button onclick="hide_info()">Close</button>
+					</div>
+					
+					<!-- end panels -->
+
+				</div>
+			</td>
+			
+			<td id="rightbar_c" rowspan="2">
+				<div id="rightbar">
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td id="about_c">
+				<div id="about">
+					<p><button onclick="show_credits()">Credits</button></p>
+					<p>Goomy Clicker <span class="version"></span></p>
+					<p class="small">Donate cryptocurrencies<br />
+					Bitcoin: 133AsgJZfWdeXCTJ5dMXpoyYkiv426WLhW<br />
+					Peercoin: PXeceJ6we5ojghBdVpjF1XEFGzfuM4VSM5</p>
+				</div>
+			</td>
+		</tr>
+
+	</table>
+
+</div> <!-- gamebox -->
+
+
+<div id="msgbox">
+	<div id="credits">
+		<p>Goomy Clicker <span class="version"></span></p>
+		<p>&copy; 2013 <a href="http://joezeng.com/">Joe Zeng</a>.<br />With co-operation and collaboration from the <a href="http://reddit.com/r/churchofgoomy/">Church of Goomy</a> on Reddit.</p>
+		<p><a href="http://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> &copy; 2013 Orteil.<br />Pok&eacute;mon &copy; 1996-2013 Game Freak, Nintendo.<br />The picture of Goomy is from a <a href="http://www.pixiv.net/member_illust.php?mode=medium&illust_id=38905126">pixiv submission</a>.</p>
+	</div>
+	
+	<button onclick="close_msgbox()">Close</button>
+</div>
+
+</div>
+
+</body>
+
+</html>
