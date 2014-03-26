@@ -529,7 +529,7 @@ length_comparisons = {
 
 	"light_year": {
 		"name_sing": "the distance light travels in a year",
-		"name_pl": "the distance light travels in %.1f years",
+		"name_pl": "the distance light travels in %s years",
 		"length": 9461000000000000
 	},
 
@@ -547,13 +547,13 @@ length_comparisons = {
 
 	"light_year2": {
 		"name_sing": "the distance light travels in a decade",
-		"name_pl": "the distance light travels in %.1f decades",
+		"name_pl": "the distance light travels in %s decades",
 		"length": 94610000000000000
 	},
 	
 	"light_year3": {
 		"name_sing": "the distance light travels in a century",
-		"name_pl": "the distance light travels in %.1f centuries",
+		"name_pl": "the distance light travels in %s centuries",
 		"length": 946100000000000000
 	},
 	
@@ -565,7 +565,7 @@ length_comparisons = {
 
 	"light_year3": {
 		"name_sing": "the distance light travels in a millennium",
-		"name_pl": "the distance light travels in %.1f millennia",
+		"name_pl": "the distance light travels in %s millennia",
 		"length": 9461000000000000000
 	},
 	
@@ -583,7 +583,7 @@ length_comparisons = {
 	
 	"milky_way2": {
 		"name_sing": "across the Milky Way galaxy",
-		"name_pl": "across the Milky Way galaxy %.1f times",
+		"name_pl": "across the Milky Way galaxy %s times",
 		"length": 946100000000000000000
 	},
 	
