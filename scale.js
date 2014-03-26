@@ -131,8 +131,6 @@ function compare_volume(cu_m){
 
 
 
-
-
 function repr_weight(kg){
 	if(kg > 1000000000){
 		return digitgroup(kg / 1000000000, 3) + " Mt";
@@ -487,12 +485,42 @@ length_comparisons = {
 		"length": 773200000000
 	},
 
-	"jupiter2": {
-		"name_sing": "from the Sun to Jupiter and back",
-		"name_pl": "from the Sun to Jupiter and back %s times",
-		"length": 1546400000000
+	"saturn": {
+		"name_sing": "from the Sun to Saturn",
+		"name_pl": "",
+		"length": 1433449370000
 	},
 
+	"uranus": {
+		"name_sing": "from the Sun to Uranus",
+		"name_pl": "",
+		"length": 2876679082000
+	},
+	
+	"neptune": {
+		"name_sing": "from the Sun to Neptune",
+		"name_pl": "",
+		"length": 4503443661000
+	},
+	
+	"kuiper_belt": {
+		"name_sing": "from the Sun into the Kuiper Belt",
+		"name_pl": "",
+		"length": 5200000000000
+	},
+	
+	"kuiper_belt2": {
+		"name_sing": "past the edge of the Kuiper Belt",
+		"name_pl": "",
+		"length": 7498000000000
+	},
+	
+	"sedna": {
+		"name_sing": "past the orbit of Sedna",
+		"name_pl": "",
+		"length": 140200000000000
+	},
+	
 	"oort_cloud": {
 		"name_sing": "past the edge of the Oort cloud",
 		"name_pl": "",
@@ -501,22 +529,64 @@ length_comparisons = {
 
 	"light_year": {
 		"name_sing": "the distance light travels in a year",
-		"name_pl": "the distance light travels in %d years",
+		"name_pl": "the distance light travels in %.1f years",
 		"length": 9461000000000000
 	},
 
-	"proxima_centauri": {
-		"name_sing": "to Proxima Centauri, the nearest star",
+	"alpha_centauri": {
+		"name_sing": "past Alpha Centauri",
 		"name_pl": "",
 		"length": 39905000000000000
 	},
 
-	"light_year2": {
-		"name_sing": "the distance light travels in a decade",
-		"name_pl": "the distance light travels in %d decades",
-		"length": 94610000000000000
+	"sirius": {
+		"name_sing": "past Sirius",
+		"name_pl": "",
+		"length": 81364600000000000
 	},
 
+	"light_year2": {
+		"name_sing": "the distance light travels in a decade",
+		"name_pl": "the distance light travels in %.1f decades",
+		"length": 94610000000000000
+	},
+	
+	"light_year3": {
+		"name_sing": "the distance light travels in a century",
+		"name_pl": "the distance light travels in %.1f centuries",
+		"length": 946100000000000000
+	},
+	
+	"polaris": {
+		"name_sing": "past Polaris",
+		"name_pl": "",
+		"length": 4105957025100067200
+	},
+
+	"light_year3": {
+		"name_sing": "the distance light travels in a millennium",
+		"name_pl": "the distance light travels in %.1f millennia",
+		"length": 9461000000000000000
+	},
+	
+	"milky_way": {
+		"name_sing": "to the center of the Milky Way galaxy",
+		"name_pl": "",
+		"length": 236525000000000000000
+	},
+	
+	"milky_way2": {
+		"name_sing": "past the edge of the Milky Way galaxy",
+		"name_pl": "",
+		"length": 473050000000000000000
+	},
+	
+	"milky_way2": {
+		"name_sing": "across the Milky Way galaxy",
+		"name_pl": "across the Milky Way galaxy %.1f times",
+		"length": 946100000000000000000
+	},
+	
 
 
 	/*
