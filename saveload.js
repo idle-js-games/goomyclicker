@@ -63,6 +63,9 @@ function reset_game(){
 	for(item in items){
 		items[item].count = 0;
 	}
+	for(upgrade in upgrades){
+		upgrades[upgrade].bought = false;
+	}
 
 	recalc();
 
