@@ -226,10 +226,10 @@ function display_exp(){
 
 	if(goomy.exp >= goomy.level * goomy.level * 100){
 		goomy.level += 1;
-		$("#level").html(goomy.level);
 		recalc();
 	}
 	
+	$("#level").html(goomy.level);
 	$("#expbar").attr("max", ((goomy.level * 2 - 1) * 100));
 	$("#expbar").attr("value", goomy.exp - ((goomy.level - 1) * (goomy.level - 1) * 100));
 
