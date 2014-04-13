@@ -164,7 +164,8 @@ button{
 	background-color: #ae85f8;
 	border: 2px solid #7c48fe;
 	border-radius: 3px;
-	font-size: 12px;
+	font-size: 12pt;
+	padding: 4px 8px;
 	cursor: pointer;
 }
 
