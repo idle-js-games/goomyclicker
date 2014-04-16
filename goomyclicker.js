@@ -263,9 +263,15 @@ function update(){
 
 	// Scale info, from scale.js
 	$("#info_goomycount").html(digitgroup(Math.floor(goomies)));
-	$("#length_comparison").html(compare_length(goomy_length * Math.floor(goomies)));
+	
+	var length_comp = compare_length(goomy_length * Math.floor(goomies));
+	$("#total_length").html(repr_length(goomy_length * Math.floor(goomies)));
+	$("#length_comparison").html(length_comp);
+	$("#comparison").html(length_comp);
+
 	$("#total_volume").html(repr_volume(goomy_volume * Math.floor(goomies)));
 	$("#volume_comparison").html(compare_volume(goomy_volume * Math.floor(goomies)));
+
 	$("#total_weight").html(repr_weight(goomy_weight * Math.floor(goomies)));
 	$("#weight_comparison").html(compare_weight(goomy_weight * Math.floor(goomies)));
 	
