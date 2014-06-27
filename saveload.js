@@ -1,22 +1,23 @@
 // Local storage in saving
 
 function save_game(){
-	
+
 	// store all saved data.
 
 	localStorage["goomyclicker.goomy.level"] = goomy.level;
 	localStorage["goomyclicker.goomy.exp"] = goomy.exp;
 	localStorage["goomyclicker.goomies"] = goomies;
 	localStorage["goomyclicker.total_goomies"] = total_goomies;
+	localStorage["goomyclicker.save_time"] = last_update_time.getTime();
 
 	for(item in items){
 		localStorage["goomyclicker.items." + item + ".count"] = items[item].count;
 	}
-	
+
 	for(var a = 0; a < upgrades.length; ++a){
 		localStorage["goomyclicker.upgrades." + a + ".bought"] = upgrades[a].bought;
 	}
-	
+
 	$("#save_dialog").show();
 	setTimeout(function(){$("#save_dialog").hide();}, 3000);
 
@@ -24,7 +25,7 @@ function save_game(){
 
 
 function load_game(){
-	
+
 	if(localStorage.getItem("goomyclicker.goomy.level") !== null)
 		goomy.level = parseFloat(localStorage["goomyclicker.goomy.level"]);
 	if(localStorage.getItem("goomyclicker.goomy.exp") !== null)
@@ -33,6 +34,8 @@ function load_game(){
 		goomies = parseFloat(localStorage["goomyclicker.goomies"]);
 	if(localStorage.getItem("goomyclicker.total_goomies") !== null)
 		total_goomies = parseFloat(localStorage["goomyclicker.total_goomies"]);
+	if(localStorage.getItem("goomyclicker.save_time") !== null)
+		last_update_time.setTime(parseInt(localStorage["goomyclicker.save_time"]));
 
 	for(item in items){
 		if(localStorage.getItem("goomyclicker.items." + item + ".count") !== null){
@@ -40,7 +43,7 @@ function load_game(){
 			if(items[item].count > 0) $("#" + item + "_count").html(" - " + items[item].count);
 		}
 	}
-	
+
 	for(var a = 0; a < upgrades.length; ++a){
 		if(localStorage.getItem("goomyclicker.upgrades." + a + ".bought") === "true"){
 			upgrades[a].bought = true;
@@ -129,20 +132,20 @@ function sstr_to_bin(sstr){
 }
 
 function bin_to_b64(bin){
-	
+
 	if(bin == "Export error") return bin;
 	if(bin.length % 2 != 0){
 		return "Export error";
 	}
-	
+
 	var b64 = "";
 	var padding = "";
-	
+
 	while(bin.length % 6 != 0){
 		bin += "00";
 		padding += base64string[64];
 	}
-	
+
 	var strlength = 0;
 	for(; strlength < bin.length; strlength += 6){
 		b64 += base64string[parseInt(bin.substr(strlength, 6), 2)];
@@ -156,19 +159,19 @@ function sstr_to_b64(sstr){
 }
 
 function export_save(){
-	
+
 	var d01_level = goomy.level;
 	var d02_exp = Math.floor(goomy.exp);
 	var d03_goomies = Math.floor(goomies);
-	
+
 	var d04_items = "";
 	for(item in items){
 		d04_items += items[item].count + ",";
 	}
 	d04_items = d04_items.slice(0, -1); // remove trailing ,
-	
+
 	var d05_totalgoomies = Math.floor(total_goomies);
-	
+
 	var d06_upgrades = "";
 	for(var a = 0; a < upgrades.length; ++a){
 		if(upgrades[a].bought){
@@ -229,12 +232,12 @@ function b64_to_sstr(b64){
 }
 
 function import_save(){
-	
+
 	var save_b64 = $("#import_string").val();
 	var save_string = b64_to_sstr(save_b64);
 
 	var data = save_string.split("|");
-	
+
 	var d01_level = parseInt(data[0]);
 	if(isNaN(d01_level)) d01_level = 0;
 		goomy.level = d01_level;
@@ -242,7 +245,7 @@ function import_save(){
 	var d02_exp = parseInt(data[1]);
 	if(isNaN(d02_exp)) d02_exp = 0;
 		goomy.exp = d02_exp;
-		
+
 	var d03_goomies = parseFloat(data[2]);
 	if(isNaN(d03_goomies)) d03_goomies = 0;
 		goomies = d03_goomies;
@@ -262,7 +265,7 @@ function import_save(){
 	if(isNaN(d05_totalgoomies)) d05_totalgoomies = 0;
 		total_goomies = d05_totalgoomies;
 
-	if(data[5] != null){	
+	if(data[5] != null){
 		var d06_upgrades = data[5].split(",");
 		for(var a = 0; a < d06_upgrades.length; ++a){
 			var upgrade = parseInt(d06_upgrades[a]);
@@ -273,7 +276,7 @@ function import_save(){
 	}
 
 	recalc();
-	
+
 	$("#import_dialog").hide();
 
 }
