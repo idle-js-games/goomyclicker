@@ -12,7 +12,7 @@
 
 // Variables
 
-version = "v.0.2.1 (beta)"
+version = "v.0.2.16.IGG (beta)"
 
 clicks = 0;
 
