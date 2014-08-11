@@ -3,7 +3,7 @@
 //  Goomy Clicker
 //  A parody of Cookie Clicker
 //  © 2013-2014 Joe Zeng
-//
+//  
 //  Goomy is love, Goomy is life.
 //
 ////////////////////////////////////
@@ -12,7 +12,11 @@
 
 // Variables
 
+<<<<<<< HEAD
 version = "v.0.2.16.IGG (beta)"
+=======
+version = "v.0.2 (beta)"
+>>>>>>> parent of c445ab6... Implemented perfect idling.
 
 clicks = 0;
 
@@ -52,7 +56,7 @@ function init_game(){
 
 	// load item data
 	for(item in items){
-
+		
 		items[item].cost = items[item].base_cost;
 
 		$("#rightbar").append(
@@ -96,7 +100,7 @@ function init_game(){
 	$("#goomy_container").mouseup(function(){
 		$("#great_goomy").css({"height": "400px", "top": "0px", "left": "30px"});
 	});
-
+	
 	// if loading is available, load the game data.
 	load_game();
 
@@ -110,7 +114,7 @@ function init_game(){
 	setInterval(save_game, 60000);
 
 	$(".version").html(version);
-
+	
 }
 
 
@@ -135,18 +139,18 @@ function buy_item(item){
 
 
 function buy_upgrade(upgrade_id){
-
+	
 	if(upgrades[upgrade_id].bought == true) return;
 	if(goomies < upgrades[upgrade_id].cost) return;
 	if(goomy.level < upgrades[upgrade_id].unlock_level) return;
-
+	
 	upgrades[upgrade_id].bought = true;
 	goomies -= upgrades[upgrade_id].cost;
 
 	$("#upgrade" + upgrade_id).hide();
 
 	recalc();
-
+	
 }
 
 
@@ -159,13 +163,13 @@ function click_on_goomy(x, y){
 
 	clicks += 1;
 	plus_goomies = gpc * click_mult * global_mult;
-
+	
 	goomies += plus_goomies;
 	total_goomies += plus_goomies;
 	plus_markers.push(new plus_marker(x, y, plus_goomies));
 
 	goomy.exp += Math.sqrt(goomy.level);
-
+	
 	display_exp();
 
 }
@@ -183,17 +187,17 @@ plus_marker_anidist = 100;
 plus_marker_origradius = 100;
 
 function plus_marker(x, y, number){
-
+	
 	this.anims = plus_marker_anims;
 	this.number = number;
 	this.id = marker_id;
 	marker_id += 1;
-
+	
 	this.init_pos_y = y - plus_marker_origradius / 2 + Math.random() * plus_marker_origradius;
-
+	
 	this.pos_x = x - plus_marker_origradius / 2 + Math.random() * plus_marker_origradius;
 	this.pos_y = y - plus_marker_origradius / 2 + Math.random() * plus_marker_origradius;
-
+	
 	this.update = update;
 	function update(ms){
 		if(this.anims - ms <= 0){
@@ -204,7 +208,7 @@ function plus_marker(x, y, number){
 
 		this.anims -= ms;
 		var aniprop = this.anims / plus_marker_anims;
-
+	
 		this.pos_y = this.init_pos_y - plus_marker_anidist + (aniprop * aniprop * plus_marker_anidist);
 		$("#plus_marker" + this.id).css("top", this.pos_y + "px");
 	}
@@ -215,7 +219,7 @@ function plus_marker(x, y, number){
 	));
 	$("#plus_marker" + this.id).css("top", this.pos_y + "px");
 	$("#plus_marker" + this.id).css("left", this.pos_x - $("#plus_marker" + this.id).width() / 2) + "px";
-
+	
 	return this;
 
 }
@@ -228,7 +232,7 @@ function display_exp(){
 		goomy.level += 1;
 		recalc();
 	}
-
+	
 	$("#level").html(goomy.level);
 	$("#expbar").attr("max", ((goomy.level * 2 - 1) * 100));
 	$("#expbar").attr("value", goomy.exp - ((goomy.level - 1) * (goomy.level - 1) * 100));
@@ -242,11 +246,11 @@ last_update_time = new Date();
 
 
 function update(){
-
+	
 	var curtime = new Date();
 	delta_ms = curtime.getTime() - last_update_time.getTime();
 	last_update_time.setTime(curtime.getTime());
-
+	
 	goomies += gps * global_mult * (delta_ms / 1000);
 	total_goomies += gps * global_mult * (delta_ms / 1000);
 	goomy.exp += expps * (delta_ms / 1000);
@@ -263,7 +267,7 @@ function update(){
 
 	// Scale info, from scale.js
 	$("#info_goomycount").html(digitgroup(Math.floor(goomies)));
-
+	
 	var length_comp = compare_length(goomy_length * Math.floor(goomies));
 	$("#total_length").html(repr_length(goomy_length * Math.floor(goomies)));
 	$("#length_comparison").html(length_comp);
@@ -274,7 +278,7 @@ function update(){
 
 	$("#total_weight").html(repr_weight(goomy_weight * Math.floor(goomies)));
 	$("#weight_comparison").html(compare_weight(goomy_weight * Math.floor(goomies)));
-
-	setTimeout(update, 20);
+	
+	setTimeout(update, 20);	
 
 }
