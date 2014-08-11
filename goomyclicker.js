@@ -12,11 +12,7 @@
 
 // Variables
 
-<<<<<<< HEAD
-version = "v.0.2.16.IGG (beta)"
-=======
 version = "v.0.2 (beta)"
->>>>>>> parent of c445ab6... Implemented perfect idling.
 
 clicks = 0;
 
